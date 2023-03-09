@@ -1,6 +1,7 @@
 package com.pragma.foodcourt.application.dish.handler.impl;
 
 import com.pragma.foodcourt.application.dish.dto.request.UpdateDishRequestDto;
+import com.pragma.foodcourt.application.dish.dto.request.UpdateDishStatusRequestDto;
 import com.pragma.foodcourt.application.dish.dto.response.GetDishForUpdateResponseDto;
 import com.pragma.foodcourt.application.dish.handler.IUpdateDishHandler;
 import com.pragma.foodcourt.application.dish.mapper.IUpdateDishRequestMapper;
@@ -30,6 +31,15 @@ public class UpdateDishHandlerImpl implements IUpdateDishHandler {
 
         dishModel.setPrice(updateDishRequestDto.getPrice());
         dishModel.setDescription(updateDishRequestDto.getDescription());
+
+        updateDishServicePort.updateDish(dishModel);
+    }
+
+    @Override
+    public void updateDishStatus(UpdateDishStatusRequestDto updateDishStatusRequestDto) {
+        DishModel dishModel = updateDishServicePort.getDish(updateDishStatusRequestDto.getId());
+
+        dishModel.setActive(updateDishStatusRequestDto.isActive());
 
         updateDishServicePort.updateDish(dishModel);
     }

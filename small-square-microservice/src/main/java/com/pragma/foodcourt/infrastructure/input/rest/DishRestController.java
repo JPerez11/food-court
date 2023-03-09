@@ -2,6 +2,7 @@ package com.pragma.foodcourt.infrastructure.input.rest;
 
 import com.pragma.foodcourt.application.dish.dto.request.SaveDishRequestDto;
 import com.pragma.foodcourt.application.dish.dto.request.UpdateDishRequestDto;
+import com.pragma.foodcourt.application.dish.dto.request.UpdateDishStatusRequestDto;
 import com.pragma.foodcourt.application.dish.dto.response.FindAllDishesResponseDto;
 import com.pragma.foodcourt.application.dish.handler.IFindAllDishesHandler;
 import com.pragma.foodcourt.application.dish.handler.ISaveDishHandler;
@@ -59,6 +60,12 @@ public class DishRestController {
     @PutMapping("/update")
     public ResponseEntity<Void> updateDish(@RequestBody UpdateDishRequestDto updateDishRequest) {
         updateDishHandler.updateDish(updateDishRequest);
+        return ResponseEntity.noContent().build();
+    }
+    @Operation(summary = "Update a dish status")
+    @PutMapping("/status")
+    public ResponseEntity<Void> updateDishStatus(@RequestBody UpdateDishStatusRequestDto updateDishStatusRequest) {
+        updateDishHandler.updateDishStatus(updateDishStatusRequest);
         return ResponseEntity.noContent().build();
     }
 }
