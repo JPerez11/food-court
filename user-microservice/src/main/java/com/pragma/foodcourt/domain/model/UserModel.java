@@ -1,10 +1,6 @@
 package com.pragma.foodcourt.domain.model;
 
-import com.pragma.foodcourt.domain.exception.DomainException;
 import com.pragma.foodcourt.domain.validation.Validations;
-
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 public class UserModel {
 
@@ -14,7 +10,7 @@ public class UserModel {
 
     private String lastName;
 
-    private int nit;
+    private int document;
 
     private String phone;
 
@@ -27,13 +23,13 @@ public class UserModel {
     public UserModel() {
     }
 
-    public UserModel(Long id, String name, String lastName, int nit, String phone, String email,
+    public UserModel(Long id, String name, String lastName, int document, String phone, String email,
                      String password, RoleModel idRol) {
         Validations valid = new Validations();
         this.id = id;
         this.name = valid.emptyStringValidate(name);
         this.lastName = valid.emptyStringValidate(lastName);
-        this.nit = nit;
+        this.document = document;
         this.phone = valid.numberPhoneValidate(valid.emptyStringValidate(phone));
         this.email = valid.emailValidate(valid.emptyStringValidate(email));
         this.password = valid.emptyStringValidate(password);
@@ -64,12 +60,12 @@ public class UserModel {
         this.lastName = lastName;
     }
 
-    public int getNit() {
-        return nit;
+    public int getDocument() {
+        return document;
     }
 
-    public void setNit(int nit) {
-        this.nit = nit;
+    public void setDocument(int document) {
+        this.document = document;
     }
 
     public String getPhone() {

@@ -22,6 +22,12 @@ public class UserUseCase implements IUserServicePort {
     }
 
     @Override
+    public void registerUser(UserModel userModel) {
+        Validations validations = new Validations();
+        userPersistencePort.registerUser(validations.validationsModel(userModel));
+    }
+
+    @Override
     public List<UserModel> getAllUsers() {
         return userPersistencePort.getAllUsers();
     }

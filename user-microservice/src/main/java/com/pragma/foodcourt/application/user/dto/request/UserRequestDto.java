@@ -20,9 +20,9 @@ public class UserRequestDto {
     @NotEmpty(message = "The field last name cannot empty")
     private String lastName;
 
-    @NotNull(message = "The field nit cannot null")
-    @NotEmpty(message = "The field nit cannot empty")
-    private int nit;
+    @NotNull(message = "The field document cannot null")
+    @NotEmpty(message = "The field document cannot empty")
+    private int document;
 
     @NotNull(message = "The field phone cannot null")
     @NotEmpty(message = "The field phone cannot empty")

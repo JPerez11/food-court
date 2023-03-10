@@ -1,7 +1,7 @@
 package com.pragma.foodcourt.infrastructure.security.service;
 
 import com.pragma.foodcourt.infrastructure.security.dto.AuthCredentials;
-import static com.pragma.foodcourt.infrastructure.security.util.TokenUtils.createToken;
+import com.pragma.foodcourt.infrastructure.security.util.TokenUtils;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -16,7 +16,8 @@ public class LoginService {
 
     public String login(AuthCredentials authCredentials) {
         UserDetails userDetails = userDetailsService.loadUserByUsername(authCredentials.getEmail());
-        return createToken(userDetails);
+        return TokenUtils.createToken(userDetails);
 
     }
+
 }

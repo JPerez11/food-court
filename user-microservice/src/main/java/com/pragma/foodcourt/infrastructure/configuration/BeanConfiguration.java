@@ -7,6 +7,7 @@ import com.pragma.foodcourt.domain.util.IUserPasswordEncrypt;
 import com.pragma.foodcourt.infrastructure.impl.UserPasswordEncryptImpl;
 import com.pragma.foodcourt.infrastructure.output.jpa.adapter.UserJpaAdapter;
 import com.pragma.foodcourt.infrastructure.output.jpa.mapper.IUserEntityMapper;
+import com.pragma.foodcourt.infrastructure.output.jpa.repository.IRoleRepository;
 import com.pragma.foodcourt.infrastructure.output.jpa.repository.IUserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
@@ -16,18 +17,19 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 @Configuration
 @RequiredArgsConstructor
 public class BeanConfiguration {
-    private final IUserRepository objectRepository;
-    private final IUserEntityMapper objectEntityMapper;
+    private final IUserRepository userRepository;
+    private final IRoleRepository roleRepository;
+    private final IUserEntityMapper userEntityMapper;
     private final PasswordEncoder encoder;
 
     @Bean
-    public IUserPersistencePort objectPersistencePort() {
-        return new UserJpaAdapter(objectRepository, objectEntityMapper);
+    public IUserPersistencePort userPersistencePort() {
+        return new UserJpaAdapter(userRepository, roleRepository, userEntityMapper);
     }
 
     @Bean
-    public IUserServicePort objectServicePort() {
-        return new UserUseCase(objectPersistencePort());
+    public IUserServicePort userServicePort() {
+        return new UserUseCase(userPersistencePort());
     }
 
     @Bean

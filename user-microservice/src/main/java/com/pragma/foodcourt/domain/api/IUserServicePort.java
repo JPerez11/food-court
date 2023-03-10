@@ -8,6 +8,8 @@ public interface IUserServicePort {
 
     void saveUser(UserModel userModel);
 
+    void registerUser(UserModel userModel);
+
     List<UserModel> getAllUsers();
 
 }

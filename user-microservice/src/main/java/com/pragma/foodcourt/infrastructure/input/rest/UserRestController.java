@@ -17,9 +17,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.annotation.Secured;
-import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -44,7 +41,7 @@ public class UserRestController {
                     content = @Content)
     })
     @PostMapping("/")
-    @PreAuthorize("hasRole('ADMIN')")
+    @Secured({"ADMIN", "OWNER"})
     public ResponseEntity<Void> saveUser(@RequestBody UserRequestDto userRequestDto) {
         RoleEntity rol = Actions.getRoleWithAuthentication(roleRepository);
         userRequestDto.setIdRole(roleEntityMapper.toRoleModel(rol));
@@ -61,18 +58,9 @@ public class UserRestController {
             @ApiResponse(responseCode = "404", description = "No data found", content = @Content)
     })
     @GetMapping("/")
-    @Secured("ADMIN")
+    @Secured({"ADMIN", "OWNER"})
     public ResponseEntity<List<UserResponseDto>> getAllUsers() {
         return ResponseEntity.ok(userHandler.getAllUsers());
     }
-
-    @GetMapping("/test")
-    public String test() {
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        String userEmail = authentication.getName();
-        String userRole = authentication.getAuthorities().toString();
-        return "Este endpoint solo se puede acceder si está autenticado. El usuario autenticado es " + userEmail + " con el rol " + userRole;
-    }
-
 
 }

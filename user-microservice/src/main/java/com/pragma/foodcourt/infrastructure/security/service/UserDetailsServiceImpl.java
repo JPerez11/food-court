@@ -14,20 +14,6 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 
     private final IUserRepository userRepository;
 
-//    @Override
-//    public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
-//        UserEntity user = userRepository.findByEmail(email);
-//        Set<GrantedAuthority> role = new HashSet<>();
-//
-//        if (user == null) {
-//            throw new UsernameNotFoundException("User not found with email: " + email);
-//        }
-//        String roleName = user.getIdRole().getName();
-//        role.add(new SimpleGrantedAuthority(roleName));
-//        System.out.println(role);
-//        return new User(user.getEmail(), user.getPassword(), role);
-//    }
-
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
         UserEntity userEntity = userRepository

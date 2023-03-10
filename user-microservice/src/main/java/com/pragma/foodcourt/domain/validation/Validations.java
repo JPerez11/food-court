@@ -8,8 +8,8 @@ import java.util.regex.Pattern;
 
 public class Validations {
 
-    private static final String REGEX_EMAIL = "/[A-Za-z0-9]+@+[a-z0-9]+\\.[a-z]+/";
-    private static final String REGEX_PHONE = "/\\+?+(0-9)+/";
+    private static final String REGEX_EMAIL = "^[a-zA-Z0-9_!#$%&'*+/=?`{|}~^.-]+@[a-zA-Z0-9.-]+$";
+    private static final String REGEX_PHONE = "^\\+?\\d+$";
 
     public UserModel validationsModel(UserModel userModel) {
         userModel.setName(emptyStringValidate(userModel.getName()));

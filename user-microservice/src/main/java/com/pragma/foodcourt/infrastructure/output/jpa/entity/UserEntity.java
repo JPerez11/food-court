@@ -26,7 +26,7 @@ public class UserEntity {
     @Column(name ="last_name", length = 50, nullable = false)
     private String lastName;
     @Column(length = 20, nullable = false, unique = true)
-    private int nit;
+    private int document;
     @Email
     @Column(nullable = false, unique = true)
     private String email;

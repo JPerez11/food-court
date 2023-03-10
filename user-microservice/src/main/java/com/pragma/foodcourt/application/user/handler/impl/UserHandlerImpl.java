@@ -8,6 +8,7 @@ import com.pragma.foodcourt.application.user.mapper.IUserResponseMapper;
 import com.pragma.foodcourt.domain.api.IUserServicePort;
 import com.pragma.foodcourt.domain.model.UserModel;
 import com.pragma.foodcourt.domain.util.IUserPasswordEncrypt;
+import com.pragma.foodcourt.application.user.dto.request.login.LoginRegister;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -29,6 +30,22 @@ public class UserHandlerImpl implements IUserHandler {
         userRequestDto.setPassword(passwordEncrypt.passwordEncoder(userRequestDto.getPassword()));
         UserModel userModel = userRequestMapper.toUser(userRequestDto);
         userServicePort.saveUser(userModel);
+    }
+
+    @Override
+    public void registerUser(LoginRegister loginRegister) {
+        loginRegister.setPassword(passwordEncrypt.passwordEncoder(loginRegister.getPassword()));
+
+        UserModel userModel = new UserModel();
+
+        userModel.setName(loginRegister.getName() );
+        userModel.setLastName(loginRegister.getLastName() );
+        userModel.setEmail(loginRegister.getEmail() );
+        userModel.setDocument(loginRegister.getDocument() );
+        userModel.setPhone(loginRegister.getPhone() );
+        userModel.setPassword(loginRegister.getPassword() );
+
+        userServicePort.registerUser(userModel);
     }
 
     @Override
