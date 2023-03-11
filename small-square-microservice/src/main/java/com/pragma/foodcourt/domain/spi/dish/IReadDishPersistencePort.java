@@ -4,8 +4,10 @@ import com.pragma.foodcourt.domain.model.DishModel;
 
 import java.util.List;
 
-public interface IFindAllDishesPersistencePort {
+public interface IReadDishPersistencePort {
 
     List<DishModel> findAllDishes();
+
+    List<DishModel>  findDishByIdRestaurantOrderByIdCategory(Long id);
 
 }

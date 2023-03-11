@@ -25,7 +25,7 @@ public class RestaurantJpaAdapter implements IRestaurantPersistencePort {
 
     @Override
     public List<RestaurantModel> getAllRestaurants() {
-        List<RestaurantEntity> restaurantEntityList = restaurantRepository.findAll();
+        List<RestaurantEntity> restaurantEntityList = restaurantRepository.findAllOrderByNameAsc();
 
         if(restaurantEntityList.isEmpty()) {
             throw new NoDataFoundException();

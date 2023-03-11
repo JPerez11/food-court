@@ -1,8 +1,8 @@
-package com.pragma.foodcourt.domain.spi.dish;
+package com.pragma.foodcourt.domain.api.dish;
 
 import com.pragma.foodcourt.domain.model.DishModel;
 
-public interface ISaveDishPersistencePort {
+public interface ICreateDishServicePort {
 
     void saveDish(DishModel dishModel);
 

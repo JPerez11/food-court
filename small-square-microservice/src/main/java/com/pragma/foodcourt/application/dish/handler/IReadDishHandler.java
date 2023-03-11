@@ -4,8 +4,10 @@ import com.pragma.foodcourt.application.dish.dto.response.FindAllDishesResponseD
 
 import java.util.List;
 
-public interface IFindAllDishesHandler {
+public interface IReadDishHandler {
 
     List<FindAllDishesResponseDto> findAllDish();
+
+    List<FindAllDishesResponseDto>  findDishByIdRestaurantOrderByIdCategory(Long id);
 
 }

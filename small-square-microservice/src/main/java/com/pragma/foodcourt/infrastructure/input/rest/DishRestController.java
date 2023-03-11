@@ -4,8 +4,8 @@ import com.pragma.foodcourt.application.dish.dto.request.SaveDishRequestDto;
 import com.pragma.foodcourt.application.dish.dto.request.UpdateDishRequestDto;
 import com.pragma.foodcourt.application.dish.dto.request.UpdateDishStatusRequestDto;
 import com.pragma.foodcourt.application.dish.dto.response.FindAllDishesResponseDto;
-import com.pragma.foodcourt.application.dish.handler.IFindAllDishesHandler;
-import com.pragma.foodcourt.application.dish.handler.ISaveDishHandler;
+import com.pragma.foodcourt.application.dish.handler.IReadDishHandler;
+import com.pragma.foodcourt.application.dish.handler.ICreateDishHandler;
 import com.pragma.foodcourt.application.dish.handler.IUpdateDishHandler;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.ArraySchema;
@@ -27,8 +27,8 @@ import java.util.List;
 @RequestMapping("/api/food-court/dish")
 public class DishRestController {
 
-    private final ISaveDishHandler saveDishHandler;
-    private final IFindAllDishesHandler findAllDishHandler;
+    private final ICreateDishHandler saveDishHandler;
+    private final IReadDishHandler readDishHandler;
     private final IUpdateDishHandler updateDishHandler;
 
     @Operation(summary = "Add a new dish")
@@ -37,7 +37,7 @@ public class DishRestController {
             @ApiResponse(responseCode = "409", description = "Dish already exists",
                     content = @Content)
     })
-    @PostMapping("/save")
+    @PostMapping("/")
     public ResponseEntity<Void> saveDish(@RequestBody SaveDishRequestDto saveDishRequestDto) {
         saveDishHandler.saveDish(saveDishRequestDto);
         return new ResponseEntity<>(HttpStatus.CREATED);
@@ -53,7 +53,21 @@ public class DishRestController {
     })
     @GetMapping("/")
     public ResponseEntity<List<FindAllDishesResponseDto>> findAllDishes() {
-        return ResponseEntity.ok(findAllDishHandler.findAllDish());
+        return ResponseEntity.ok(readDishHandler.findAllDish());
+    }
+
+    @Operation(summary = "Get all dish from your restaurant")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "All dish returned",
+                    content = @Content(mediaType = "application/json",
+                            array = @ArraySchema(schema = @Schema(
+                                    implementation = FindAllDishesResponseDto.class)))),
+            @ApiResponse(responseCode = "404", description = "No data found", content = @Content)
+    })
+    @GetMapping("/{id}")
+    public ResponseEntity<List<FindAllDishesResponseDto>> readDish(@PathVariable Long id) {
+        //For the time it's like this, it's time to change to make it more dynamic
+        return ResponseEntity.ok(readDishHandler.findDishByIdRestaurantOrderByIdCategory(id));
     }
 
     @Operation(summary = "Update a dish")
