@@ -15,32 +15,23 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "DISH")
+@Table(name = "DISH_ORDERS")
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class DishEntity {
+public class DishOrderEntity {
 
     @Id
-    @Column(name = "id_dish", nullable = false)
+    @Column(name = "id_dish_order")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(nullable = false)
-    private String name;
-    @Column(nullable = false)
-    private int price;
-    @Column(nullable = false)
-    private String description;
-    @Column(name = "url_image", nullable = false)
-    private String urlImage;
-    @Column(nullable = false)
-    private boolean active = true;
     @ManyToOne
-    @JoinColumn(name = "id_restaurant", nullable = false)
-    private RestaurantEntity idRestaurant;
+    @JoinColumn(name = "id_order", nullable = false)
+    private OrderEntity orderEntity;
     @ManyToOne
-    @JoinColumn(name = "id_category", nullable = false)
-    private CategoryEntity idCategory;
-
+    @JoinColumn(name = "id_dish", nullable = false)
+    private DishEntity dishEntity;
+    @Column(nullable = false)
+    private int amount;
 }

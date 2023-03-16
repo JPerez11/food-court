@@ -13,34 +13,28 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import java.time.LocalDate;
 
 @Entity
-@Table(name = "DISH")
+@Table(name = "ORDERS")
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class DishEntity {
+public class OrderEntity {
 
     @Id
-    @Column(name = "id_dish", nullable = false)
+    @Column(name = "id_order")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(nullable = false)
-    private String name;
-    @Column(nullable = false)
-    private int price;
-    @Column(nullable = false)
-    private String description;
-    @Column(name = "url_image", nullable = false)
-    private String urlImage;
-    @Column(nullable = false)
-    private boolean active = true;
+    @Column(name = "id_client", nullable = false)
+    private Long idClient;
+    private LocalDate date = LocalDate.now();
+    private String status = "PENDING";
+    @Column(name = "id_chef", nullable = false)
+    private Long idChef;
     @ManyToOne
     @JoinColumn(name = "id_restaurant", nullable = false)
     private RestaurantEntity idRestaurant;
-    @ManyToOne
-    @JoinColumn(name = "id_category", nullable = false)
-    private CategoryEntity idCategory;
 
 }

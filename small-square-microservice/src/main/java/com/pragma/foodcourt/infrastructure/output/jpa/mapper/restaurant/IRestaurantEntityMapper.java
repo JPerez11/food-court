@@ -1,4 +1,4 @@
-package com.pragma.foodcourt.infrastructure.output.jpa.mapper;
+package com.pragma.foodcourt.infrastructure.output.jpa.mapper.restaurant;
 
 import com.pragma.foodcourt.domain.model.RestaurantModel;
 import com.pragma.foodcourt.infrastructure.output.jpa.entity.RestaurantEntity;

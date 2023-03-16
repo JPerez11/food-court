@@ -18,7 +18,7 @@ public class RestaurantModel {
     public RestaurantModel(Long id, String name, int nit, String address, String phone,
                            String urlLogo, Long idOwner) {
         this.id = id;
-        this.name = emptyValidate(validateName(name));
+        this.name = emptyValidate(name);
         this.nit = emptyValidate(nit);
         this.address = emptyValidate(address);
         this.phone = emptyValidate(numberPhoneValidate(phone));

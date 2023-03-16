@@ -1,8 +1,8 @@
 package com.pragma.foodcourt.application.dish.handler.impl;
 
-import com.pragma.foodcourt.application.dish.dto.response.FindAllDishesResponseDto;
+import com.pragma.foodcourt.application.dish.dto.response.ReadDishResponseDto;
 import com.pragma.foodcourt.application.dish.handler.IReadDishHandler;
-import com.pragma.foodcourt.application.dish.mapper.IFindAllDishesResponseMapper;
+import com.pragma.foodcourt.application.dish.mapper.IReadDishResponseMapper;
 import com.pragma.foodcourt.domain.api.dish.IReadDishServicePort;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -16,16 +16,16 @@ import java.util.List;
 public class ReadDishHandlerImpl implements IReadDishHandler {
 
     private final IReadDishServicePort readDishServicePort;
-    private final IFindAllDishesResponseMapper findAllDishResponseMapper;
+    private final IReadDishResponseMapper findAllDishResponseMapper;
 
     @Override
-    public List<FindAllDishesResponseDto> findAllDish() {
+    public List<ReadDishResponseDto> findAllDish() {
         return findAllDishResponseMapper.dishResponseList(
                 readDishServicePort.findAllDish());
     }
 
     @Override
-    public List<FindAllDishesResponseDto> findDishByIdRestaurantOrderByIdCategory(Long id) {
+    public List<ReadDishResponseDto> findDishByIdRestaurantOrderByIdCategory(Long id) {
         return findAllDishResponseMapper.dishResponseList(
                 readDishServicePort.findDishByIdRestaurantOrderByIdCategory(id));
     }

@@ -4,7 +4,7 @@ import com.pragma.foodcourt.domain.api.restaurant.IRestaurantServicePort;
 import com.pragma.foodcourt.domain.spi.restaurant.IRestaurantPersistencePort;
 import com.pragma.foodcourt.domain.usecase.restaurant.RestaurantUseCase;
 import com.pragma.foodcourt.infrastructure.output.jpa.adapter.restaurant.RestaurantJpaAdapter;
-import com.pragma.foodcourt.infrastructure.output.jpa.mapper.IRestaurantEntityMapper;
+import com.pragma.foodcourt.infrastructure.output.jpa.mapper.restaurant.IRestaurantEntityMapper;
 import com.pragma.foodcourt.infrastructure.output.jpa.repository.IRestaurantRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;

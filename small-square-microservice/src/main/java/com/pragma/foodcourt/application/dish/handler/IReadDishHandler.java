@@ -1,13 +1,13 @@
 package com.pragma.foodcourt.application.dish.handler;
 
-import com.pragma.foodcourt.application.dish.dto.response.FindAllDishesResponseDto;
+import com.pragma.foodcourt.application.dish.dto.response.ReadDishResponseDto;
 
 import java.util.List;
 
 public interface IReadDishHandler {
 
-    List<FindAllDishesResponseDto> findAllDish();
+    List<ReadDishResponseDto> findAllDish();
 
-    List<FindAllDishesResponseDto>  findDishByIdRestaurantOrderByIdCategory(Long id);
+    List<ReadDishResponseDto>  findDishByIdRestaurantOrderByIdCategory(Long id);
 
 }

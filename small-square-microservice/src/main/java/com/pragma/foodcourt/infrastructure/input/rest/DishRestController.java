@@ -3,7 +3,7 @@ package com.pragma.foodcourt.infrastructure.input.rest;
 import com.pragma.foodcourt.application.dish.dto.request.SaveDishRequestDto;
 import com.pragma.foodcourt.application.dish.dto.request.UpdateDishRequestDto;
 import com.pragma.foodcourt.application.dish.dto.request.UpdateDishStatusRequestDto;
-import com.pragma.foodcourt.application.dish.dto.response.FindAllDishesResponseDto;
+import com.pragma.foodcourt.application.dish.dto.response.ReadDishResponseDto;
 import com.pragma.foodcourt.application.dish.handler.IReadDishHandler;
 import com.pragma.foodcourt.application.dish.handler.ICreateDishHandler;
 import com.pragma.foodcourt.application.dish.handler.IUpdateDishHandler;
@@ -48,11 +48,11 @@ public class DishRestController {
             @ApiResponse(responseCode = "200", description = "All dish returned",
                     content = @Content(mediaType = "application/json",
                             array = @ArraySchema(schema = @Schema(
-                                    implementation = FindAllDishesResponseDto.class)))),
+                                    implementation = ReadDishResponseDto.class)))),
             @ApiResponse(responseCode = "404", description = "No data found", content = @Content)
     })
     @GetMapping("/")
-    public ResponseEntity<List<FindAllDishesResponseDto>> findAllDishes() {
+    public ResponseEntity<List<ReadDishResponseDto>> getDishes() {
         return ResponseEntity.ok(readDishHandler.findAllDish());
     }
 
@@ -61,11 +61,11 @@ public class DishRestController {
             @ApiResponse(responseCode = "200", description = "All dish returned",
                     content = @Content(mediaType = "application/json",
                             array = @ArraySchema(schema = @Schema(
-                                    implementation = FindAllDishesResponseDto.class)))),
+                                    implementation = ReadDishResponseDto.class)))),
             @ApiResponse(responseCode = "404", description = "No data found", content = @Content)
     })
     @GetMapping("/{id}")
-    public ResponseEntity<List<FindAllDishesResponseDto>> readDish(@PathVariable Long id) {
+    public ResponseEntity<List<ReadDishResponseDto>> readDish(@PathVariable Long id) {
         //For the time it's like this, it's time to change to make it more dynamic
         return ResponseEntity.ok(readDishHandler.findDishByIdRestaurantOrderByIdCategory(id));
     }

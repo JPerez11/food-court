@@ -4,7 +4,7 @@ import com.pragma.foodcourt.domain.model.RestaurantModel;
 import com.pragma.foodcourt.domain.spi.restaurant.IRestaurantPersistencePort;
 import com.pragma.foodcourt.infrastructure.exception.NoDataFoundException;
 import com.pragma.foodcourt.infrastructure.output.jpa.entity.RestaurantEntity;
-import com.pragma.foodcourt.infrastructure.output.jpa.mapper.IRestaurantEntityMapper;
+import com.pragma.foodcourt.infrastructure.output.jpa.mapper.restaurant.IRestaurantEntityMapper;
 import com.pragma.foodcourt.infrastructure.output.jpa.repository.IRestaurantRepository;
 import lombok.RequiredArgsConstructor;
 

@@ -5,7 +5,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class FindAllDishesResponseDto {
+public class ReadDishResponseDto {
 
     private String name;
     private int price;

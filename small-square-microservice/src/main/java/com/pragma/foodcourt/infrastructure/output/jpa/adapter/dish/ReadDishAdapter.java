@@ -5,7 +5,7 @@ import com.pragma.foodcourt.domain.spi.dish.IReadDishPersistencePort;
 import com.pragma.foodcourt.infrastructure.exception.NoDataFoundException;
 import com.pragma.foodcourt.infrastructure.output.jpa.entity.DishEntity;
 import com.pragma.foodcourt.infrastructure.output.jpa.entity.RestaurantEntity;
-import com.pragma.foodcourt.infrastructure.output.jpa.mapper.dish.IFindAllDishesEntityMapper;
+import com.pragma.foodcourt.infrastructure.output.jpa.mapper.dish.IReadDishEntityMapper;
 import com.pragma.foodcourt.infrastructure.output.jpa.repository.IDishRepository;
 import com.pragma.foodcourt.infrastructure.output.jpa.repository.IRestaurantRepository;
 import lombok.RequiredArgsConstructor;
@@ -17,7 +17,7 @@ public class ReadDishAdapter implements IReadDishPersistencePort {
 
     private final IDishRepository dishRepository;
     private final IRestaurantRepository restaurantRepository;
-    private final IFindAllDishesEntityMapper findAllDishEntityMapper;
+    private final IReadDishEntityMapper readDishEntityMapper;
 
     @Override
     public List<DishModel> findAllDishes() {
@@ -26,18 +26,21 @@ public class ReadDishAdapter implements IReadDishPersistencePort {
         if(dishEntityList.isEmpty()) {
             throw new NoDataFoundException();
         }
-        return findAllDishEntityMapper.toDishModelList(dishEntityList);
+        return readDishEntityMapper.toDishModelList(dishEntityList);
     }
 
     @Override
     public List<DishModel> findDishByIdRestaurantOrderByIdCategory(Long id) {
         RestaurantEntity restaurantEntity = restaurantRepository
-                .findById(id).orElseThrow( () -> new IllegalArgumentException("The restaurant id doesn't exist."));
+                .findById(id).orElse(null);
+        if (restaurantEntity == null) {
+            throw new NoDataFoundException();
+        }
         List<DishEntity> dishEntityList = dishRepository.findDishByIdRestaurantOrderByIdCategory(restaurantEntity);
 
         if(dishEntityList.isEmpty()) {
             throw new NoDataFoundException();
         }
-        return findAllDishEntityMapper.toDishModelList(dishEntityList);
+        return readDishEntityMapper.toDishModelList(dishEntityList);
     }
 }

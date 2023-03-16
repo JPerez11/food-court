@@ -5,13 +5,13 @@ import com.pragma.foodcourt.infrastructure.output.jpa.entity.DishEntity;
 import org.mapstruct.Mapper;
 import org.mapstruct.ReportingPolicy;
 
+import java.util.List;
+
 @Mapper(componentModel = "spring",
         unmappedTargetPolicy = ReportingPolicy.IGNORE,
         unmappedSourcePolicy = ReportingPolicy.IGNORE)
-public interface ISaveDishEntityMapper {
+public interface IReadDishEntityMapper {
 
-    DishModel toDishModel(DishEntity dishEntity);
-
-    DishEntity toDishEntity(DishModel dishModel);
+    List<DishModel> toDishModelList(List<DishEntity> dishEntityList);
 
 }
