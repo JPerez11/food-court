@@ -21,7 +21,7 @@ public class ReadDishHandlerImpl implements IReadDishHandler {
     @Override
     public List<ReadDishResponseDto> findAllDish() {
         return findAllDishResponseMapper.dishResponseList(
-                readDishServicePort.findAllDish());
+                readDishServicePort.findAllDishes());
     }
 
     @Override

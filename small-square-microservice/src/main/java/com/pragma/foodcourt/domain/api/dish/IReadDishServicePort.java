@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface IReadDishServicePort {
 
-    List<DishModel> findAllDish();
+    List<DishModel> findAllDishes();
 
     List<DishModel>  findDishByIdRestaurantOrderByIdCategory(Long id);
 

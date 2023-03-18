@@ -5,10 +5,8 @@ import com.pragma.foodcourt.domain.model.OrderModel;
 
 public interface ICreateOrderPersistencePort {
 
-    void createOrder(OrderModel orderModel, DishOrderModel dishOrderModel);
+    OrderModel createOrder(OrderModel orderModel);
 
-    void createOrder(OrderModel orderModel);
-
-    void createDishOrder(DishOrderModel dishOrderModel);
+    DishOrderModel createDishOrder(DishOrderModel dishOrderModel);
 
 }

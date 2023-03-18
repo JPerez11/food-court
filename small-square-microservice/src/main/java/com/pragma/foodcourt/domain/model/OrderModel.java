@@ -1,19 +1,19 @@
 package com.pragma.foodcourt.domain.model;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 public class OrderModel {
 
     private Long id;
     private Long idClient;
-    private LocalDate date;
+    private LocalDateTime date;
     private String status;
     private Long idChef;
     private RestaurantModel idRestaurant;
 
     public OrderModel() {}
 
-    public OrderModel(Long id, Long idClient, LocalDate date, String status, Long idChef, RestaurantModel idRestaurant) {
+    public OrderModel(Long id, Long idClient, LocalDateTime date, String status, Long idChef, RestaurantModel idRestaurant) {
         this.id = id;
         this.idClient = idClient;
         this.date = date;
@@ -38,11 +38,11 @@ public class OrderModel {
         this.idClient = idClient;
     }
 
-    public LocalDate getDate() {
+    public LocalDateTime getDate() {
         return date;
     }
 
-    public void setDate(LocalDate date) {
+    public void setDate(LocalDateTime date) {
         this.date = date;
     }
 

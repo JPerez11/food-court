@@ -5,8 +5,6 @@ import com.pragma.foodcourt.domain.model.OrderModel;
 
 public interface ICreateOrderServicePort {
 
-    void createOrder(OrderModel orderModel, DishOrderModel dishOrderModel);
-
     void createOrder(OrderModel orderModel);
 
     void createDishOrder(DishOrderModel dishOrderModel);

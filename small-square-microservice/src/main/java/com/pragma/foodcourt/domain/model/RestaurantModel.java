@@ -1,7 +1,5 @@
 package com.pragma.foodcourt.domain.model;
 
-import static com.pragma.foodcourt.domain.validation.ValidationRestaurant.*;
-
 public class RestaurantModel {
 
     private Long id;
@@ -18,11 +16,11 @@ public class RestaurantModel {
     public RestaurantModel(Long id, String name, int nit, String address, String phone,
                            String urlLogo, Long idOwner) {
         this.id = id;
-        this.name = emptyValidate(name);
-        this.nit = emptyValidate(nit);
-        this.address = emptyValidate(address);
-        this.phone = emptyValidate(numberPhoneValidate(phone));
-        this.urlLogo = emptyValidate(urlLogo);
+        this.name = name;
+        this.nit = nit;
+        this.address = address;
+        this.phone = phone;
+        this.urlLogo = urlLogo;
         this.idOwner = idOwner;
     }
 

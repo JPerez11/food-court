@@ -15,7 +15,7 @@ public class ReadDishUseCase implements IReadDishServicePort {
     }
 
     @Override
-    public List<DishModel> findAllDish() {
+    public List<DishModel> findAllDishes() {
         return readDishPersistencePort.findAllDishes();
     }
 

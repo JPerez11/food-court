@@ -21,9 +21,11 @@ public class UpdateDishAdapter implements IUpdateDishPersistencePort {
     }
 
     @Override
-    public void updateDish(DishModel dishModel) {
+    public DishModel updateDish(DishModel dishModel) {
         DishEntity dishEntity = updateDishEntityMapper.toDishEntity(dishModel);
 
         dishRepository.save(dishEntity);
+
+        return updateDishEntityMapper.toDishModel(dishEntity);
     }
 }

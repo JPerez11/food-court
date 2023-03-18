@@ -8,7 +8,7 @@ public interface IUserPersistencePort {
 
     UserModel saveUser(UserModel userModel);
 
-    void registerUser(UserModel userModel);
+    UserModel registerUser(UserModel userModel);
 
     List<UserModel> getAllUsers();
 

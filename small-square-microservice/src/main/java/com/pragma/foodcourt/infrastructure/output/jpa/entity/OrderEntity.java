@@ -13,7 +13,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "ORDERS")
@@ -29,7 +29,9 @@ public class OrderEntity {
     private Long id;
     @Column(name = "id_client", nullable = false)
     private Long idClient;
-    private LocalDate date = LocalDate.now();
+    @Column(nullable = false)
+    private LocalDateTime date = LocalDateTime.now();
+    @Column(nullable = false)
     private String status = "PENDING";
     @Column(name = "id_chef", nullable = false)
     private Long idChef;

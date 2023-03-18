@@ -3,6 +3,7 @@ package com.pragma.foodcourt.domain.usecase.restaurant;
 import com.pragma.foodcourt.domain.api.restaurant.IRestaurantServicePort;
 import com.pragma.foodcourt.domain.model.RestaurantModel;
 import com.pragma.foodcourt.domain.spi.restaurant.IRestaurantPersistencePort;
+import com.pragma.foodcourt.domain.validation.ValidationRestaurant;
 
 import java.util.List;
 
@@ -16,7 +17,8 @@ public class RestaurantUseCase implements IRestaurantServicePort {
 
     @Override
     public void saveRestaurant(RestaurantModel restaurantModel) {
-        restaurantPersistencePort.saveRestaurant(restaurantModel);
+        ValidationRestaurant validations = new ValidationRestaurant();
+        restaurantPersistencePort.saveRestaurant(validations.validationsModel(restaurantModel));
     }
 
     @Override

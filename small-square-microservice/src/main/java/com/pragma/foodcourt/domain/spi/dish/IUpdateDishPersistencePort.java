@@ -6,6 +6,6 @@ public interface IUpdateDishPersistencePort {
 
     DishModel getDish(Long id);
 
-    void updateDish(DishModel dishModel);
+    DishModel updateDish(DishModel dishModel);
 
 }

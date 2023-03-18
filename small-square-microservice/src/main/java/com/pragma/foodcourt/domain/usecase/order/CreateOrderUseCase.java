@@ -14,11 +14,6 @@ public class CreateOrderUseCase implements ICreateOrderServicePort {
     }
 
     @Override
-    public void createOrder(OrderModel orderModel, DishOrderModel dishOrderModel) {
-        createOrderPersistencePort.createOrder(orderModel, dishOrderModel);
-    }
-
-    @Override
     public void createOrder(OrderModel orderModel) {
         createOrderPersistencePort.createOrder(orderModel);
     }

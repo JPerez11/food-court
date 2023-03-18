@@ -25,7 +25,7 @@ public class UserJpaAdapter implements IUserPersistencePort {
     }
 
     @Override
-    public void registerUser(UserModel userModel) {
+    public UserModel registerUser(UserModel userModel) {
         UserEntity userEntity = new UserEntity();
 
         userEntity.setName(userModel.getName() );
@@ -37,6 +37,8 @@ public class UserJpaAdapter implements IUserPersistencePort {
         userEntity.setIdRole( roleRepository.findByName("CUSTOMER") );
 
         userRepository.save(userEntity);
+
+        return userEntityMapper.toUserModel(userEntity);
     }
 
     @Override
