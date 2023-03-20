@@ -13,8 +13,8 @@ import java.util.*;
 
 public class TokenUtils {
 
-    private static final String ACCESS_TOKEN_SECRET = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9";
-    private static final Long ACCESS_TOKEN_VALIDITY_SECONDS = 2_592_000l;
+    private static final String ACCESS_TOKEN_SECRET = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXvCJ9";
+    private static final Long ACCESS_TOKEN_VALIDITY_SECONDS = 3600L;
 
     public static String createToken(UserDetails userDetails) {
         long expirationTime = ACCESS_TOKEN_VALIDITY_SECONDS * 1_000;

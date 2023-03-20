@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: config-server
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/JPerez11/service-configuration
+          clone-on-start: true
+          default-label: master
+          fail-fast: true
+
+server:
+  port:
+    8888
+
+

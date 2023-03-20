@@ -1,12 +1,15 @@
 package com.pragma.foodcourt.application.restaurant.dto.request;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
 @Getter
 @Setter
-@ToString
+@NoArgsConstructor
+@AllArgsConstructor
 public class RestaurantRequestDto {
 
     private String name;

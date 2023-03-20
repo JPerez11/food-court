@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="dfabedc7-fda7-4ef8-80e5-a2051e2c4a8f" name="Changes" comment="push service configuration">
+      <change afterPath="$PROJECT_DIR$/../discovery-service/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../discovery-service/build.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../discovery-service/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../discovery-service/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../discovery-service/gradlew" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../discovery-service/gradlew.bat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../discovery-service/settings.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../discovery-service/src/main/java/com/pragma/discoveryservice/DiscoveryServiceApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../discovery-service/src/main/resources/application.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../discovery-service/src/test/java/com/pragma/discoveryservice/DiscoveryServiceApplicationTests.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../small-square-microservice/src/main/resources/bootstrap.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../small-square-microservice/src/test/java/com/pragma/foodcourt/infrastructure/input/rest/RestaurantRestControllerTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../user-microservice/src/main/java/com/pragma/foodcourt/infrastructure/feign/client/IRestaurantFeign.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../user-microservice/src/main/java/com/pragma/foodcourt/infrastructure/feign/controller/RestaurantFeignController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../user-microservice/src/main/java/com/pragma/foodcourt/infrastructure/feign/dto/RestaurantResponseDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../user-microservice/src/main/resources/bootstrap.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../user-microservice/src/test/java/com/pragma/foodcourt/infrastructure/input/rest/UserRestControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../small-square-microservice/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../small-square-microservice/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../small-square-microservice/src/main/java/com/pragma/foodcourt/PowerUpApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/../small-square-microservice/src/main/java/com/pragma/foodcourt/PowerUpApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../small-square-microservice/src/main/java/com/pragma/foodcourt/application/restaurant/dto/request/RestaurantRequestDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/../small-square-microservice/src/main/java/com/pragma/foodcourt/application/restaurant/dto/request/RestaurantRequestDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../small-square-microservice/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../small-square-microservice/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../user-microservice/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../user-microservice/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../user-microservice/src/main/java/com/pragma/foodcourt/PowerUpApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/../user-microservice/src/main/java/com/pragma/foodcourt/PowerUpApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../user-microservice/src/main/java/com/pragma/foodcourt/application/user/dto/request/UserRequestDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/../user-microservice/src/main/java/com/pragma/foodcourt/application/user/dto/request/UserRequestDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../user-microservice/src/main/java/com/pragma/foodcourt/infrastructure/security/util/TokenUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/../user-microservice/src/main/java/com/pragma/foodcourt/infrastructure/security/util/TokenUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../user-microservice/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../user-microservice/src/main/resources/application.yml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2NFxo5zAREl6h07dO2e0yhsDNn1" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SONARLINT_PRECOMMIT_ANALYSIS": "true"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="dfabedc7-fda7-4ef8-80e5-a2051e2c4a8f" name="Changes" comment="" />
+      <created>1679273802157</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1679273802157</updated>
+    </task>
+    <task id="LOCAL-00001" summary="push service configuration">
+      <created>1679273841774</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1679273841774</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
+    <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="push service configuration" />
+    <option name="LAST_COMMIT_MESSAGE" value="push service configuration" />
+  </component>
+</project>

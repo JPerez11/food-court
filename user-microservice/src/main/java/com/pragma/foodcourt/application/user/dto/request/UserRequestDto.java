@@ -1,7 +1,9 @@
 package com.pragma.foodcourt.application.user.dto.request;
 
 import com.pragma.foodcourt.domain.model.RoleModel;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.validation.constraints.Email;
@@ -10,6 +12,8 @@ import javax.validation.constraints.NotNull;
 
 @Getter
 @Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class UserRequestDto {
 
     @NotNull(message = "The field name cannot null")
