@@ -71,15 +71,15 @@ public class DishRestController {
     }
 
     @Operation(summary = "Update a dish")
-    @PutMapping("/update")
+    @PutMapping("/")
     public ResponseEntity<Void> updateDish(@RequestBody UpdateDishRequestDto updateDishRequest) {
         updateDishHandler.updateDish(updateDishRequest);
-        return ResponseEntity.noContent().build();
+        return new ResponseEntity<>(HttpStatus.CREATED);
     }
     @Operation(summary = "Update a dish status")
     @PutMapping("/status")
     public ResponseEntity<Void> updateDishStatus(@RequestBody UpdateDishStatusRequestDto updateDishStatusRequest) {
         updateDishHandler.updateDishStatus(updateDishStatusRequest);
-        return ResponseEntity.noContent().build();
+        return new ResponseEntity<>(HttpStatus.CREATED);
     }
 }

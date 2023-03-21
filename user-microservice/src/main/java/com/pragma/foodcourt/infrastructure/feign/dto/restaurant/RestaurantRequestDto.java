@@ -1,4 +1,4 @@
-package com.pragma.foodcourt.application.restaurant.dto.request;
+package com.pragma.foodcourt.infrastructure.feign.dto.restaurant;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -19,3 +19,4 @@ public class RestaurantRequestDto {
     private Long idOwner;
 
 }
+

@@ -1,4 +1,4 @@
-package com.pragma.foodcourt.infrastructure.feign.dto;
+package com.pragma.foodcourt.infrastructure.feign.dto.restaurant;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

@@ -83,7 +83,8 @@ public class OrderRestController {
     })
     @GetMapping("/paginated")
     public Page<OrderResponse> getOrdersPaginated(@RequestParam String status, @RequestParam Long idRestaurant,
-                                                  @RequestParam int pageNumber, @RequestParam int pageSize) {
+                                                  @RequestParam(name = "content", defaultValue = "0") int pageNumber,
+                                                  @RequestParam(name = "size", defaultValue = "10") int pageSize) {
 
         List<OrderResponse> orderResponseList = readOrderHandler.getOrder(status, idRestaurant);
         int orderSize = orderResponseList.size();
