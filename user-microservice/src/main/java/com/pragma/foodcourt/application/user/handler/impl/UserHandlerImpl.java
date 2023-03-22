@@ -15,6 +15,9 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
+/**
+ * Transactional service handler
+ */
 @Service
 @Transactional
 @RequiredArgsConstructor
@@ -27,6 +30,7 @@ public class UserHandlerImpl implements IUserHandler {
 
     @Override
     public void saveUser(UserRequestDto userRequestDto) {
+        //Encrypt password
         userRequestDto.setPassword(passwordEncrypt.passwordEncoder(userRequestDto.getPassword()));
         UserModel userModel = userRequestMapper.toUser(userRequestDto);
         userServicePort.saveUser(userModel);
@@ -34,10 +38,13 @@ public class UserHandlerImpl implements IUserHandler {
 
     @Override
     public void registerUser(LoginRegister loginRegister) {
+        //Encrypt password
         loginRegister.setPassword(passwordEncrypt.passwordEncoder(loginRegister.getPassword()));
 
+        //New instance to userModel
         UserModel userModel = new UserModel();
 
+        //Map instance
         userModel.setName(loginRegister.getName() );
         userModel.setLastName(loginRegister.getLastName() );
         userModel.setEmail(loginRegister.getEmail() );

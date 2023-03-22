@@ -13,6 +13,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+/**
+ * Controller class to handle login and registration.
+ */
 @RestController
 @RequestMapping("/auth")
 @RequiredArgsConstructor
@@ -21,6 +24,7 @@ public class LoginController {
     private final LoginService loginService;
     private final IUserHandler userHandler;
 
+    //Create token with the credentials
     @PostMapping("/login")
     public LoginResponse login(@RequestBody AuthCredentials authCredentials) {
         return LoginResponse.builder()
@@ -28,6 +32,7 @@ public class LoginController {
                 .build();
     }
 
+    //Create new user from login record
     @PostMapping("/register")
     public ResponseEntity<Void> loginResponse(@RequestBody LoginRegister loginRegister) {
         userHandler.registerUser(loginRegister);

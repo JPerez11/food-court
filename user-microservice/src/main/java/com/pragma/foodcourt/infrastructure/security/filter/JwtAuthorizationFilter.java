@@ -13,6 +13,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+/**
+ * Class to authorize jwt credentials.
+ */
 @Component
 public class JwtAuthorizationFilter extends OncePerRequestFilter {
     @Override
@@ -21,12 +24,17 @@ public class JwtAuthorizationFilter extends OncePerRequestFilter {
                                     @NonNull FilterChain filterChain
     ) throws ServletException, IOException {
 
+        //Get bearer token from Authorization header
         String bearerToken = request.getHeader("Authorization");
 
+        //Validate that bearerToken is not null and starts with "Bearer"
         if (bearerToken != null && bearerToken.startsWith("Bearer")) {
+            //Remove the word "Bearer" from the bearerToken variable
             String token = bearerToken.replace("Bearer ", "");
+            //Get authentication with the credentials in the token
             UsernamePasswordAuthenticationToken authenticationToken =
                     TokenUtils.getAuthenticationToken(token);
+            //Set authentication in Spring SecurityContextHolder
             SecurityContextHolder.getContext().setAuthentication(authenticationToken);
         }
         filterChain.doFilter(request, response);

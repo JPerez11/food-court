@@ -25,6 +25,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
+/**
+ * Controller users.
+ */
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/api/food-court/users")
@@ -34,6 +37,12 @@ public class UserRestController {
     private final IRoleRepository roleRepository;
     private final IRoleEntityMapper roleEntityMapper;
 
+    /**
+     * Method to save user.
+     * Only if the user is ADMIN or OWNER.
+     * @param userRequestDto object with user request.
+     * @return Http status 201
+     */
     @Operation(summary = "Add a new users")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "201", description = "User created", content = @Content),
@@ -43,12 +52,19 @@ public class UserRestController {
     @PostMapping("/")
     @Secured({"ADMIN", "OWNER"})
     public ResponseEntity<Void> saveUser(@RequestBody UserRequestDto userRequestDto) {
+        //Get the role from actions class
         RoleEntity rol = Actions.getRoleWithAuthentication(roleRepository);
+        //Map the role to RoleModel
         userRequestDto.setIdRole(roleEntityMapper.toRoleModel(rol));
         userHandler.saveUser(userRequestDto);
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
+    /**
+     * Method to get all users.
+     * Only if the user is ADMIN or OWNER.
+     * @return Http status 200
+     */
     @Operation(summary = "Get all users")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "All users returned",

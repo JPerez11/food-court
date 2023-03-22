@@ -14,21 +14,29 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.List;
 
+/**
+ * Feign client for microservice dishes.
+ */
 @FeignClient(name = "dish", url = "localhost:8091/api/food-court/dish")
 public interface IDishFeign {
 
+    //Get the dishes.
     @GetMapping("/")
     ResponseEntity<List<ReadDishResponseDto>> getDishes();
 
+    //Get the dish from a restaurant.
     @GetMapping("{id}")
     ResponseEntity<List<ReadDishResponseDto>> readDish(@PathVariable Long id);
 
+    //Save the dish.
     @PostMapping("/")
     ResponseEntity<Void> saveDish(@RequestBody SaveDishRequestDto saveDishRequestDto);
 
+    //Update the dish.
     @PutMapping("/update")
     ResponseEntity<Void> updateDish(@RequestBody UpdateDishRequestDto updateDishRequest);
 
+    //Update the dish status.
     @PutMapping("/status")
     ResponseEntity<Void> updateDishStatus(@RequestBody UpdateDishStatusRequestDto updateDishStatusRequest);
 

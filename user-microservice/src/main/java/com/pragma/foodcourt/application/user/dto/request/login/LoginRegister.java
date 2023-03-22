@@ -3,6 +3,9 @@ package com.pragma.foodcourt.application.user.dto.request.login;
 import lombok.Getter;
 import lombok.Setter;
 
+/**
+ * Request class to register the user.
+ */
 @Getter
 @Setter
 public class LoginRegister {

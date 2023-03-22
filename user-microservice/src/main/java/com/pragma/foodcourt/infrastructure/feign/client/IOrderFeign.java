@@ -13,18 +13,25 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
+/**
+ * Feign client for microservice orders.
+ */
 @FeignClient(name = "order", url = "localhost:8091/api/food-court/orders")
 public interface IOrderFeign {
 
+    //Save order.
     @PostMapping("/order")
     ResponseEntity<Void> createOrder(@RequestBody CreateOrderRequestDto createOrderRequestDto);
 
+    //Save order detail.
     @PostMapping("/dish-order")
     ResponseEntity<Void> createDishOrder(@RequestBody CreateDishOrderRequestDto createDishOrderRequestDto);
 
+    //Gets the order sorted by status.
     @GetMapping("/")
     List<OrderResponse> getOrders(@RequestParam String status, @RequestParam Long idRestaurant);
 
+    //Gets the order sorted by status and paginates it.
     @GetMapping("/paginated")
     Page<OrderResponse> getOrdersPaginated(@RequestParam String status, @RequestParam Long idRestaurant,
                                            @RequestParam(name = "content", defaultValue = "0") int pageNumber,

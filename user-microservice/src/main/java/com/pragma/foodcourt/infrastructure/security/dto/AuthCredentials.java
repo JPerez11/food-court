@@ -5,6 +5,9 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+/**
+ * DTO class to obtain authentication credentials.
+ */
 @Getter
 @Setter
 @NoArgsConstructor

@@ -10,12 +10,17 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.List;
 
+/**
+ * Feign client for microservice restaurant.
+ */
 @FeignClient(name = "restaurant", url = "localhost:8091/api/food-court/restaurant")
 public interface IRestaurantFeign {
 
+    //Get restaurants.
     @GetMapping("/")
     ResponseEntity<List<RestaurantResponseDto>> getAllRestaurants();
 
+    //Save restaurant.
     @PostMapping("/")
     ResponseEntity<Void> saveRestaurant(@RequestBody RestaurantRequestDto restaurantRequestDto);
 

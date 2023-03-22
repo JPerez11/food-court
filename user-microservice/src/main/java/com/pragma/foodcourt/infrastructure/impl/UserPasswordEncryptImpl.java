@@ -4,6 +4,9 @@ import com.pragma.foodcourt.domain.util.IUserPasswordEncrypt;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
+/**
+ * Implementation class to encrypt the password.
+ */
 @RequiredArgsConstructor
 public class UserPasswordEncryptImpl implements IUserPasswordEncrypt {
 
@@ -11,6 +14,7 @@ public class UserPasswordEncryptImpl implements IUserPasswordEncrypt {
 
     @Override
     public String passwordEncoder(String password) {
+        //Return the encrypted password
         return encryptor.encode(password);
     }
 

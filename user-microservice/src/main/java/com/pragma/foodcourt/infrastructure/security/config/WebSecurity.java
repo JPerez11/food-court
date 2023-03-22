@@ -15,6 +15,9 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
+/**
+ * Security configuration class to allow and authorize users.
+ */
 @Configuration
 @EnableWebSecurity(debug = true)
 @RequiredArgsConstructor
@@ -25,6 +28,7 @@ public class WebSecurity {
     private final UserDetailsService userDetailsService;
     private final BCryptConfiguration bCryptConfiguration;
 
+    //Set security filters in the application.
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
 
@@ -48,6 +52,7 @@ public class WebSecurity {
 
     }
 
+    //Authenticates the user.
     @Bean
     public AuthenticationManager authenticationManager(HttpSecurity http) throws Exception {
 

@@ -9,6 +9,9 @@ import org.springframework.security.core.userdetails.UserDetails;
 import java.util.Collection;
 import java.util.Collections;
 
+/**
+ * Class to implement a UserDetails and set the user from database.
+ */
 @RequiredArgsConstructor
 public class UserDetailsImpl implements UserDetails {
 
@@ -19,14 +22,6 @@ public class UserDetailsImpl implements UserDetails {
         String role = userEntity.getIdRole().getName();
         return Collections.singletonList(new SimpleGrantedAuthority(role));
     }
-
-//    @Override
-//    public Collection<? extends GrantedAuthority> getAuthorities() {
-//        Set<GrantedAuthority> role = new HashSet<>();
-//        String roleName = userEntity.getIdRole().getName();
-//        role.add(new SimpleGrantedAuthority(roleName));
-//        return role;
-//    }
 
     @Override
     public String getPassword() {

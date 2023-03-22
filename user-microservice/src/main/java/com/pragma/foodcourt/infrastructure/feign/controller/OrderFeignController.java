@@ -17,6 +17,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
+/**
+ * Controller feign order.
+ */
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/api/food-court/orders")
@@ -24,24 +27,36 @@ public class OrderFeignController {
 
     private final IOrderFeign orderFeign;
 
+    /**
+     * Save the order header if the user is a EMPLOYEE.
+     */
     @Secured({"EMPLOYEE"})
     @PostMapping("/order")
     public ResponseEntity<Void> createOrder(@RequestBody CreateOrderRequestDto createOrderRequestDto) {
         return orderFeign.createOrder(createOrderRequestDto);
     }
 
+    /**
+     * Save the order detail if the user is a EMPLOYEE.
+     */
     @Secured({"EMPLOYEE"})
     @PostMapping("/dish-order")
     public ResponseEntity<Void> createDishOrder(@RequestBody CreateDishOrderRequestDto createDishOrderRequestDto) {
         return orderFeign.createDishOrder(createDishOrderRequestDto);
     }
 
+    /**
+     * Gets the order if the user is a EMPLOYEE.
+     */
     @Secured({"EMPLOYEE"})
     @GetMapping("/")
     public List<OrderResponse> getOrders(@RequestParam String status, @RequestParam Long idRestaurant) {
         return orderFeign.getOrders(status, idRestaurant);
     }
 
+    /**
+     * Gets the order paginated if the user is a EMPLOYEE.
+     */
     @Secured({"EMPLOYEE"})
     @GetMapping("/paginated")
     public Page<OrderResponse> getOrdersPaginated(@RequestParam String status, @RequestParam Long idRestaurant,
